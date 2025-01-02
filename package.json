@@ -1,6 +1,6 @@
 {
   "name": "@faker-js/faker",
-  "version": "9.3.0",
+  "version": "9.4.0",
   "description": "Generate massive amounts of fake contextual data",
   "scripts": {
     "clean": "rimraf coverage .eslintcache dist docs/.vitepress/cache docs/.vitepress/dist node_modules",
