@@ -1,5 +1,1 @@
-export default {
-  generic: ['Dl', 'Dna', 'Dra'],
-  female: ['Dna', 'Dra'],
-  male: ['Dl', 'Dra'],
-};
+export default { generic: ['Dra'], female: ['Dna'], male: ['Dl'] };

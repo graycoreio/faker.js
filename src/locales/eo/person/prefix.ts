@@ -1,5 +1,5 @@
 export default {
-  generic: ['d-ino', 'd-ro', 'prof.', 's-ino', 's-ro'],
-  female: ['d-ino', 'd-ro', 'prof.', 's-ino'],
-  male: ['d-ro', 'prof.', 's-ro'],
+  generic: ['d-ro', 'prof.'],
+  female: ['d-ino', 's-ino'],
+  male: ['s-ro'],
 };

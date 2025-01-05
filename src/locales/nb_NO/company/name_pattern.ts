@@ -1,5 +1,5 @@
 export default [
-  '{{person.last_name.generic}} {{company.legal_entity_type}}',
-  '{{person.last_name.generic}}, {{person.last_name.generic}} og {{person.last_name.generic}}',
-  '{{person.last_name.generic}}-{{person.last_name.generic}}',
+  '{{person.lastName}} {{company.legal_entity_type}}',
+  '{{person.lastName}}, {{person.lastName}} og {{person.lastName}}',
+  '{{person.lastName}}-{{person.lastName}}',
 ];

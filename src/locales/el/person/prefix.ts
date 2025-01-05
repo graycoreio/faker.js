@@ -1,5 +1,1 @@
-export default {
-  generic: ['Δόκτορ', 'Κυρία', 'Κύριος'],
-  female: ['Δόκτορ', 'Κυρία'],
-  male: ['Δόκτορ', 'Κύριος'],
-};
+export default { generic: ['Δόκτορ'], female: ['Κυρία'], male: ['Κύριος'] };

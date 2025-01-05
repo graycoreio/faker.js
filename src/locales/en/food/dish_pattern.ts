@@ -13,5 +13,5 @@ export default [
   '{{food.spice}}-crusted {{food.meat}}',
   '{{food.spice}}-rubbed {{food.meat}} salad',
   '{{food.vegetable}} salad',
-  "{{person.first_name.generic}}'s special {{food.ingredient}}",
+  "{{person.firstName}}'s special {{food.ingredient}}",
 ];

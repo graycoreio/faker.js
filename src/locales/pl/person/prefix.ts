@@ -1,1 +1,1 @@
-export default { generic: ['Pan', 'Pani'], female: ['Pani'], male: ['Pan'] };
+export default { female: ['Pani'], male: ['Pan'] };

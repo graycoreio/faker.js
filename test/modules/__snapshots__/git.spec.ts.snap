@@ -53,7 +53,7 @@ exports[`git > 1211 > commitDate > with only string refDate 1`] = `"Tue Dec 31 2
 
 exports[`git > 1211 > commitEntry > with only Date refDate 1`] = `
 "commit d4fefa7fbaec9dc4c48fa8ebf46fb7c8563cf3fa
-Author: Debbie.Kshlerin70 <Debbie.Kshlerin@yahoo.com>
+Author: Dawn.Kshlerin70 <Dawn.Kshlerin@yahoo.com>
 Date: Tue Dec 31 20:55:12 2019 -0900
 
     reboot multi-byte feed
@@ -62,7 +62,7 @@ Date: Tue Dec 31 20:55:12 2019 -0900
 
 exports[`git > 1211 > commitEntry > with only number refDate 1`] = `
 "commit d4fefa7fbaec9dc4c48fa8ebf46fb7c8563cf3fa
-Author: Debbie.Kshlerin70 <Debbie.Kshlerin@yahoo.com>
+Author: Dawn.Kshlerin70 <Dawn.Kshlerin@yahoo.com>
 Date: Tue Dec 31 20:55:12 2019 -0900
 
     reboot multi-byte feed
@@ -71,7 +71,7 @@ Date: Tue Dec 31 20:55:12 2019 -0900
 
 exports[`git > 1211 > commitEntry > with only string refDate 1`] = `
 "commit d4fefa7fbaec9dc4c48fa8ebf46fb7c8563cf3fa
-Author: Debbie.Kshlerin70 <Debbie.Kshlerin@yahoo.com>
+Author: Dawn.Kshlerin70 <Dawn.Kshlerin@yahoo.com>
 Date: Tue Dec 31 20:55:12 2019 -0900
 
     reboot multi-byte feed
@@ -96,7 +96,7 @@ exports[`git > 1337 > commitDate > with only string refDate 1`] = `"Tue Dec 31 0
 
 exports[`git > 1337 > commitEntry > with only Date refDate 1`] = `
 "commit 36a7b5fa28d2f9bb79ca46ea394bc4f9bb0af328
-Author: Gene_Heller <Gene.Heller1@hotmail.com>
+Author: Fredrick_Heller <Fredrick.Heller1@hotmail.com>
 Date: Tue Dec 31 22:32:07 2019 +1200
 
     index haptic pixel
@@ -105,7 +105,7 @@ Date: Tue Dec 31 22:32:07 2019 +1200
 
 exports[`git > 1337 > commitEntry > with only number refDate 1`] = `
 "commit 36a7b5fa28d2f9bb79ca46ea394bc4f9bb0af328
-Author: Gene_Heller <Gene.Heller1@hotmail.com>
+Author: Fredrick_Heller <Fredrick.Heller1@hotmail.com>
 Date: Tue Dec 31 22:32:07 2019 +1200
 
     index haptic pixel
@@ -114,7 +114,7 @@ Date: Tue Dec 31 22:32:07 2019 +1200
 
 exports[`git > 1337 > commitEntry > with only string refDate 1`] = `
 "commit 36a7b5fa28d2f9bb79ca46ea394bc4f9bb0af328
-Author: Gene_Heller <Gene.Heller1@hotmail.com>
+Author: Fredrick_Heller <Fredrick.Heller1@hotmail.com>
 Date: Tue Dec 31 22:32:07 2019 +1200
 
     index haptic pixel

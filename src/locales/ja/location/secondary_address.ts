@@ -1,1 +1,1 @@
-export default ['{{person.last_name.generic}}###号室'];
+export default ['{{person.lastName}}###号室'];

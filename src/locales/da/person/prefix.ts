@@ -1,1 +1,1 @@
-export default { generic: ['fr.', 'hr.'], female: ['fr.'], male: ['hr.'] };
+export default { female: ['fr.'], male: ['hr.'] };
