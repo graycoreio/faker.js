@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [9.4.0](https://github.com/faker-js/faker/compare/v9.3.0...v9.4.0) (2025-01-02)
+
+
+### Features
+
+* **finance:** use fake patterns for transactionDescription ([#3202](https://github.com/faker-js/faker/issues/3202)) ([5ec4a6c](https://github.com/faker-js/faker/commit/5ec4a6c9ddc037ae189ee93f339fa52065ac2a26))
+* **internet:** update to simplified modern user-agent list ([#3324](https://github.com/faker-js/faker/issues/3324)) ([3c7abb5](https://github.com/faker-js/faker/commit/3c7abb55e68fcbcf41560539a15845e7c8882765))
+* **location:** add list of spoken languages ([#3333](https://github.com/faker-js/faker/issues/3333)) ([ff6dda9](https://github.com/faker-js/faker/commit/ff6dda94ddd312ebcff816cbb63e74df9857d091))
+
+
+### Changed Locales
+
+* **locale:** fix various locale data with trailing spaces ([#3329](https://github.com/faker-js/faker/issues/3329)) ([e5eec0e](https://github.com/faker-js/faker/commit/e5eec0ed848d298ccba1d6db9392a507c5ce2bc4))
+
+
+### Bug Fixes
+
+* **animal:** re-moo-ved some incorrect cow data ([#3326](https://github.com/faker-js/faker/issues/3326)) ([47f835b](https://github.com/faker-js/faker/commit/47f835bd0dc257e5d7b9d7e7e06c08854474a3a7))
+* basic wildcard range handling + add more tests ([#3322](https://github.com/faker-js/faker/issues/3322)) ([817f8a0](https://github.com/faker-js/faker/commit/817f8a01d93378e00c03cf73154fcec34fd5feef))
+* **finance:** update Discover card number format to ensure accuracy ([#3336](https://github.com/faker-js/faker/issues/3336)) ([69c0063](https://github.com/faker-js/faker/commit/69c006344b8c54a9cd5f0adc36d49c88a223de4e))
+* **image:** dataUri should return random type ([#3347](https://github.com/faker-js/faker/issues/3347)) ([eceb17d](https://github.com/faker-js/faker/commit/eceb17d25741c5fb1bd56b8151067eed3708a076))
+* **location:** fix bad uz street_name_part data ([#3328](https://github.com/faker-js/faker/issues/3328)) ([b6132cb](https://github.com/faker-js/faker/commit/b6132cbee67ae7e53f57ffb344688d3980f91d3d))
+* **music:** fix truncated song names with commas ([#3327](https://github.com/faker-js/faker/issues/3327)) ([f36fc71](https://github.com/faker-js/faker/commit/f36fc71ac4cce6d5a6c9e6b16d7a22a98a01db74)), closes [#996](https://github.com/faker-js/faker/issues/996)
+* **system:** semver parts should not be limited to 0-9 ([#3349](https://github.com/faker-js/faker/issues/3349)) ([c0d92b8](https://github.com/faker-js/faker/commit/c0d92b8fa856d0c841f5aee57c6e08627025447a))
+
 ## [9.3.0](https://github.com/faker-js/faker/compare/v9.2.0...v9.3.0) (2024-12-02)
 
 
