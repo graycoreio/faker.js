@@ -10,28 +10,28 @@ exports[`git > 42 > commitDate > with only string refDate 1`] = `"Tue Dec 31 08:
 
 exports[`git > 42 > commitEntry > with only Date refDate 1`] = `
 "commit ead331ddf0fc4446b96d368ab4bd1d31efb62f92
-Author: Jerome Vandervort <Jerome_Vandervort@hotmail.com>
-Date: Tue Dec 31 14:20:57 2019 +1100
+Author: Suzanne.Hahn <Suzanne_Hahn92@hotmail.com>
+Date: Tue Dec 31 04:42:12 2019 -1000
 
-    bypass bluetooth application
+    copy haptic card
 "
 `;
 
 exports[`git > 42 > commitEntry > with only number refDate 1`] = `
 "commit ead331ddf0fc4446b96d368ab4bd1d31efb62f92
-Author: Jerome Vandervort <Jerome_Vandervort@hotmail.com>
-Date: Tue Dec 31 14:20:57 2019 +1100
+Author: Suzanne.Hahn <Suzanne_Hahn92@hotmail.com>
+Date: Tue Dec 31 04:42:12 2019 -1000
 
-    bypass bluetooth application
+    copy haptic card
 "
 `;
 
 exports[`git > 42 > commitEntry > with only string refDate 1`] = `
 "commit ead331ddf0fc4446b96d368ab4bd1d31efb62f92
-Author: Jerome Vandervort <Jerome_Vandervort@hotmail.com>
-Date: Tue Dec 31 14:20:57 2019 +1100
+Author: Suzanne.Hahn <Suzanne_Hahn92@hotmail.com>
+Date: Tue Dec 31 04:42:12 2019 -1000
 
-    bypass bluetooth application
+    copy haptic card
 "
 `;
 
@@ -53,28 +53,28 @@ exports[`git > 1211 > commitDate > with only string refDate 1`] = `"Tue Dec 31 2
 
 exports[`git > 1211 > commitEntry > with only Date refDate 1`] = `
 "commit d4fefa7fbaec9dc4c48fa8ebf46fb7c8563cf3fa
-Author: Deion Durgan <Deion.Durgan@hotmail.com>
-Date: Tue Dec 31 11:08:15 2019 -0600
+Author: Debbie.Kshlerin70 <Debbie.Kshlerin@yahoo.com>
+Date: Tue Dec 31 20:55:12 2019 -0900
 
-    override solid state array
+    reboot multi-byte feed
 "
 `;
 
 exports[`git > 1211 > commitEntry > with only number refDate 1`] = `
 "commit d4fefa7fbaec9dc4c48fa8ebf46fb7c8563cf3fa
-Author: Deion Durgan <Deion.Durgan@hotmail.com>
-Date: Tue Dec 31 11:08:15 2019 -0600
+Author: Debbie.Kshlerin70 <Debbie.Kshlerin@yahoo.com>
+Date: Tue Dec 31 20:55:12 2019 -0900
 
-    override solid state array
+    reboot multi-byte feed
 "
 `;
 
 exports[`git > 1211 > commitEntry > with only string refDate 1`] = `
 "commit d4fefa7fbaec9dc4c48fa8ebf46fb7c8563cf3fa
-Author: Deion Durgan <Deion.Durgan@hotmail.com>
-Date: Tue Dec 31 11:08:15 2019 -0600
+Author: Debbie.Kshlerin70 <Debbie.Kshlerin@yahoo.com>
+Date: Tue Dec 31 20:55:12 2019 -0900
 
-    override solid state array
+    reboot multi-byte feed
 "
 `;
 
@@ -96,28 +96,28 @@ exports[`git > 1337 > commitDate > with only string refDate 1`] = `"Tue Dec 31 0
 
 exports[`git > 1337 > commitEntry > with only Date refDate 1`] = `
 "commit 36a7b5fa28d2f9bb79ca46ea394bc4f9bb0af328
-Author: Matt_Hills <Matt_Hills99@yahoo.com>
-Date: Tue Dec 31 00:20:42 2019 -0900
+Author: Gene_Heller <Gene.Heller1@hotmail.com>
+Date: Tue Dec 31 22:32:07 2019 +1200
 
-    synthesize wireless hard drive
+    index haptic pixel
 "
 `;
 
 exports[`git > 1337 > commitEntry > with only number refDate 1`] = `
 "commit 36a7b5fa28d2f9bb79ca46ea394bc4f9bb0af328
-Author: Matt_Hills <Matt_Hills99@yahoo.com>
-Date: Tue Dec 31 00:20:42 2019 -0900
+Author: Gene_Heller <Gene.Heller1@hotmail.com>
+Date: Tue Dec 31 22:32:07 2019 +1200
 
-    synthesize wireless hard drive
+    index haptic pixel
 "
 `;
 
 exports[`git > 1337 > commitEntry > with only string refDate 1`] = `
 "commit 36a7b5fa28d2f9bb79ca46ea394bc4f9bb0af328
-Author: Matt_Hills <Matt_Hills99@yahoo.com>
-Date: Tue Dec 31 00:20:42 2019 -0900
+Author: Gene_Heller <Gene.Heller1@hotmail.com>
+Date: Tue Dec 31 22:32:07 2019 +1200
 
-    synthesize wireless hard drive
+    index haptic pixel
 "
 `;
 

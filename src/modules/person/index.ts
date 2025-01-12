@@ -2,11 +2,27 @@ import type { Faker } from '../..';
 import type { PersonEntryDefinition } from '../../definitions/person';
 import { ModuleBase } from '../../internal/module-base';
 
+/**
+ * The enum for values corresponding to a person's sex.
+ */
 export enum Sex {
+  /**
+   * Is used for values that are primarily attributable to only females.
+   */
   Female = 'female',
+  /**
+   * Is used for values that cannot clearly be attributed to a specific sex or are used for both sexes.
+   */
+  Generic = 'generic',
+  /**
+   * Is used for values that are primarily attributable to only males.
+   */
   Male = 'male',
 }
 
+/**
+ * The parameter type for values corresponding to a person's sex.
+ */
 export type SexType = `${Sex}`;
 
 /**
@@ -20,30 +36,48 @@ export type SexType = `${Sex}`;
  */
 function selectDefinition<T>(
   faker: Faker,
-  sex: SexType | undefined,
+  sex: SexType = faker.person.sexType(),
   personEntry: PersonEntryDefinition<T>
 ): T[] {
   const { generic, female, male } = personEntry;
-  switch (sex) {
-    case Sex.Female: {
-      return female ?? generic;
-    }
 
-    case Sex.Male: {
-      return male ?? generic;
-    }
-
-    default: {
-      return (
-        generic ??
-        faker.helpers.arrayElement([female, male]) ??
-        // The last statement should never happen at run time. At this point in time,
-        // the entry will satisfy at least (generic || (female && male)).
-        // TS is not able to infer the type correctly.
-        []
-      );
-    }
+  if (sex === 'generic') {
+    return (
+      generic ??
+      faker.helpers.arrayElement([female, male]) ??
+      // The last statement should never happen at run time. At this point in time,
+      // the entry will satisfy at least (generic || (female && male)).
+      // TS is not able to infer the type correctly.
+      []
+    );
   }
+
+  const binary = sex === 'female' ? female : male;
+
+  if (binary != null) {
+    if (generic != null) {
+      return faker.helpers.weightedArrayElement([
+        {
+          weight: 3 * Math.sqrt(binary.length),
+          value: binary,
+        },
+        {
+          weight: Math.sqrt(generic.length),
+          value: generic,
+        },
+      ]);
+    }
+
+    return binary;
+  }
+
+  return (
+    generic ??
+    // The last statement should never happen at run time. At this point in time,
+    // the entry will satisfy at least (generic || (female && male)).
+    // TS is not able to infer the type correctly.
+    []
+  );
 }
 
 /**
@@ -238,16 +272,38 @@ export class PersonModule extends ModuleBase {
   /**
    * Returns a random sex type. The `SexType` is intended to be used in parameters and conditions.
    *
+   * @param options The optional options object.
+   * @param options.includeGeneric Whether `'generic'` should be included in the potential outputs.
+   * If `false`, this method only returns `'female'` and `'male'`.
+   * Default is `false`.
+   *
    * @see faker.person.gender(): For generating a gender related value in forms.
    * @see faker.person.sex(): For generating a binary-gender value in forms.
    *
    * @example
    * faker.person.sexType() // Sex.Female
+   * faker.person.sexType({ includeGeneric: true }) // Sex.Generic
    *
    * @since 8.0.0
    */
-  sexType(): SexType {
-    return this.faker.helpers.enumValue(Sex);
+  sexType(
+    options: {
+      /**
+       * Whether `'generic'` should be included in the potential outputs.
+       * If `false`, this method only returns `'female'` and `'male'`.
+       *
+       * @default false
+       */
+      includeGeneric?: boolean;
+    } = {}
+  ): SexType {
+    const { includeGeneric = false } = options;
+
+    if (includeGeneric) {
+      return this.faker.helpers.enumValue(Sex);
+    }
+
+    return this.faker.helpers.arrayElement([Sex.Female, Sex.Male]);
   }
 
   /**
