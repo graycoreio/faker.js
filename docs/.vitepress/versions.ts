@@ -8,6 +8,10 @@ function readBranchName(): string {
   );
 }
 
+function readCommitHash(): string {
+  return execSync('git rev-parse HEAD').toString('utf8').trim() || 'unknown';
+}
+
 function readOtherLatestReleaseTagNames(): string[] {
   const tags = execSync('git tag -l').toString('utf8').split('\n');
   const latestTagByMajor: Record<string, string> = {};
@@ -34,10 +38,11 @@ function readOtherLatestReleaseTagNames(): string[] {
 const {
   CONTEXT: deployContext = 'local',
   BRANCH: branchName = readBranchName(),
+  COMMIT_REF: commitRef = readCommitHash(),
 } = process.env;
 
 const otherVersions = readOtherLatestReleaseTagNames();
-const isReleaseBranch = /^v\d+$/.test(branchName);
+export const isReleaseBranch = /^v\d+$/.test(branchName);
 
 /**
  * The text of the version banner describing the current version.
@@ -64,6 +69,11 @@ export const versionBannerInfix: string | null = (() => {
  * The current version of Faker from package.json.
  */
 export const version = version_;
+
+/**
+ * The commit hash of the current version.
+ */
+export const commitHash = commitRef.substring(0, 7);
 
 /**
  * The version label to display in the top-right corner of the site.
