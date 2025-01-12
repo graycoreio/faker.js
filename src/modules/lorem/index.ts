@@ -4,6 +4,9 @@ import { filterWordListByLength } from '../word/filter-word-list-by-length';
 /**
  * Module to generate random texts and words.
  *
+ * The words in this module are determined by the script of the locale used in the faker instance.
+ * If a locale uses the Latin script, it will utilize Latin lorem words, while a locale using the Cyrillic script will use Cyrillic lorem words, and so forth.
+ *
  * ### Overview
  *
  * Generate dummy content using traditional faux-Latin [lorem ipsum](https://en.wikipedia.org/wiki/Lorem_ipsum) (in other locales to `en`, alternative words may be used).
