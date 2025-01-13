@@ -373,7 +373,7 @@ export class NumberModule extends SimpleModuleBase {
    * The bounds are inclusive.
    *
    * @param options Maximum value or options object.
-   * @param options.min Lower bound for generated bigint. Defaults to `0n`.
+   * @param options.min Lower bound for generated bigint. Defaults to `0n` or `max - 999999999999999n` if `max` is negative.
    * @param options.max Upper bound for generated bigint. Defaults to `min + 999999999999999n`.
    *
    * @throws When `min` is greater than `max`.
@@ -397,7 +397,7 @@ export class NumberModule extends SimpleModuleBase {
           /**
            * Lower bound for generated bigint.
            *
-           * @default 0n
+           * @default 0n or max - 999999999999999n if max is negative.
            */
           min?: bigint | number | string | boolean;
           /**
@@ -419,7 +419,12 @@ export class NumberModule extends SimpleModuleBase {
       };
     }
 
-    const min = BigInt(options.min ?? 0);
+    const min =
+      options.min === undefined
+        ? 0n <= BigInt(options.max ?? 0n + BigInt(999999999999999))
+          ? 0n
+          : BigInt(options.max ?? -999999999999999)
+        : BigInt(options.min);
     const max = BigInt(options.max ?? min + BigInt(999999999999999));
 
     if (max === min) {

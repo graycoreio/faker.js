@@ -590,6 +590,10 @@ describe('number', () => {
         expect(faker.number.bigInt({ max: 0n })).toBe(0n);
       });
 
+      it('should return a random bigint given a maximum value of -1', () => {
+        expect(faker.number.bigInt({ max: -1n })).toBeLessThanOrEqual(-1n);
+      });
+
       it('should return a random bigint given a negative bigint minimum and maximum value of 0', () => {
         const generateBigInt = faker.number.bigInt({ min: -100n, max: 0n });
         expect(generateBigInt).toBeGreaterThanOrEqual(-100n);
