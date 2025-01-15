@@ -184,11 +184,13 @@ describe('location', () => {
 
       describe('zipCode()', () => {
         it('returns random zipCode - user specified format', () => {
+          // eslint-disable-next-line @typescript-eslint/no-deprecated
           let zipCode = faker.location.zipCode({ format: '?#? #?#' });
 
           expect(zipCode).toMatch(/^[A-Za-z]\d[A-Za-z]\s\d[A-Za-z]\d$/);
 
           // try another format
+          // eslint-disable-next-line @typescript-eslint/no-deprecated
           zipCode = faker.location.zipCode({ format: '###-###' });
 
           expect(zipCode).toMatch(/^\d{3}-\d{3}$/);

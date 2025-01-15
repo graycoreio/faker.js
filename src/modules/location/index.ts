@@ -1,4 +1,5 @@
 import { FakerError } from '../../errors/faker-error';
+import { deprecated } from '../../internal/deprecated';
 import { ModuleBase } from '../../internal/module-base';
 
 /**
@@ -34,6 +35,60 @@ export interface Language {
  */
 export class LocationModule extends ModuleBase {
   /**
+   * Generates random zip code for the entire locale or the given state.
+   *
+   * @param options The optional options object.
+   * @param options.state The state to generate the zip code for.
+   * If the current locale does not have a corresponding `postcode_by_state` definition, an error is thrown.
+   *
+   * @example
+   * faker.location.zipCode() // '17839'
+   * fakerEN_US.location.zipCode({ state: 'CA' }) // '90210'
+   *
+   * @since 8.0.0
+   */
+  zipCode(options?: {
+    /**
+     * The state to generate the zip code for.
+     *
+     * If the current locale does not have a corresponding `postcode_by_state` definition, an error is thrown.
+     */
+    state?: string;
+  }): string;
+  /**
+   * Generates random zip code from specified format. If format is not specified,
+   * the locale's zip format is used.
+   *
+   * @param options The format used to generate the zip code or an options object.
+   * @param options.format The optional format used to generate the zip code.
+   * By default, a random format is used from the locale zip formats.
+   * This won't be used if the state option is specified.
+   *
+   * @see faker.helpers.replaceSymbols(): For more information about how the pattern is used.
+   *
+   * @example
+   * faker.location.zipCode() // '17839'
+   * faker.location.zipCode('####') // '6925'
+   *
+   * @since 8.0.0
+   *
+   * @deprecated Use `faker.location.zipCode()` or `faker.location.zipCode({ state })` or `faker.helpers.replaceSymbols(format)` instead.
+   */
+  zipCode(
+    options?:
+      | string
+      | {
+          /**
+           * The optional format used to generate the zip code.
+           *
+           * This won't be used if the state option is specified.
+           *
+           * @default faker.definitions.location.postcode
+           */
+          format?: string;
+        }
+  ): string;
+  /**
    * Generates random zip code from specified format. If format is not specified,
    * the locale's zip format is used.
    *
@@ -48,7 +103,46 @@ export class LocationModule extends ModuleBase {
    *
    * @example
    * faker.location.zipCode() // '17839'
-   * faker.location.zipCode('####') // '6925'
+   * fakerEN_US.location.zipCode({ state: 'CA' }) // '90210'
+   *
+   * @since 8.0.0
+   */
+  zipCode(
+    options?:
+      | string
+      | {
+          /**
+           * The state to generate the zip code for.
+           *
+           * If the current locale does not have a corresponding `postcode_by_state` definition, an error is thrown.
+           */
+          state?: string;
+          /**
+           * The optional format used to generate the zip code.
+           *
+           * This won't be used if the state option is specified.
+           *
+           * @default faker.definitions.location.postcode
+           */
+          format?: string;
+        }
+  ): string;
+  /**
+   * Generates random zip code from specified format. If format is not specified,
+   * the locale's zip format is used.
+   *
+   * @param options The format used to generate the zip code or an options object.
+   * @param options.state The state to generate the zip code for.
+   * If the current locale does not have a corresponding `postcode_by_state` definition, an error is thrown.
+   * @param options.format The optional format used to generate the zip code.
+   * By default, a random format is used from the locale zip formats.
+   * This won't be used if the state option is specified.
+   *
+   * @see faker.helpers.replaceSymbols(): For more information about how the pattern is used.
+   *
+   * @example
+   * faker.location.zipCode() // '17839'
+   * fakerEN_US.location.zipCode({ state: 'CA' }) // '90210'
    *
    * @since 8.0.0
    */
@@ -91,14 +185,29 @@ export class LocationModule extends ModuleBase {
       return this.faker.helpers.fake(zipPattern);
     }
 
-    let { format = this.faker.definitions.location.postcode } = options;
-    if (typeof format === 'string') {
-      format = [format];
+    const { format } = options;
+
+    if (format != null) {
+      deprecated({
+        deprecated:
+          'faker.location.zipCode(format) and faker.location.zipCode({ format })',
+        proposed:
+          'faker.location.zipCode(), faker.location.zipCode({ state }), or faker.helpers.replaceSymbols(format)',
+        since: '9.2.0',
+        until: '10.0.0',
+      });
+      return this.faker.helpers.replaceSymbols(format);
     }
 
-    format = this.faker.helpers.arrayElement(format);
+    let zipPattern = this.faker.definitions.location.postcode;
 
-    return this.faker.helpers.replaceSymbols(format);
+    if (typeof zipPattern === 'string') {
+      zipPattern = [zipPattern];
+    }
+
+    zipPattern = this.faker.helpers.arrayElement(zipPattern);
+
+    return this.faker.helpers.replaceSymbols(zipPattern);
   }
 
   /**
