@@ -108,6 +108,10 @@ describe('image', () => {
           type: 'svg-uri',
         });
     });
+
+    t.describe('avatarAI', (t) => {
+      t.it('noArgs').it('with sex', { sex: 'female' });
+    });
   });
 
   describe('avatar', () => {
@@ -141,6 +145,16 @@ describe('image', () => {
       );
       // The links aren't working anymore - there is nothing we can do about it
       //  assertWebAddress(avatarUrl);
+    });
+  });
+
+  describe('avatarAI', () => {
+    it('should return a random avatar url from AI', () => {
+      const avatarUrl = faker.image.avatarAI();
+
+      expect(avatarUrl).toBeTypeOf('string');
+      expect(avatarUrl).toMatch(/^https:\/\/cdn\.jsdelivr\.net\/.*\.jpg$/);
+      expect(() => new URL(avatarUrl)).not.toThrow();
     });
   });
 

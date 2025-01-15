@@ -1,6 +1,10 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`image > 42 > avatar 1`] = `"https://avatars.githubusercontent.com/u/37454012"`;
+exports[`image > 42 > avatar 1`] = `"https://cdn.jsdelivr.net/gh/matthewmayer/sd3-avatars@country-prompt/male/37.jpg"`;
+
+exports[`image > 42 > avatarAI > noArgs 1`] = `"https://cdn.jsdelivr.net/gh/matthewmayer/sd3-avatars@country-prompt/female/48.jpg"`;
+
+exports[`image > 42 > avatarAI > with sex 1`] = `"https://cdn.jsdelivr.net/gh/matthewmayer/sd3-avatars@country-prompt/female/19.jpg"`;
 
 exports[`image > 42 > avatarGitHub 1`] = `"https://avatars.githubusercontent.com/u/37454012"`;
 
@@ -76,7 +80,11 @@ exports[`image > 42 > urlPlaceholder > with width 1`] = `"https://via.placeholde
 
 exports[`image > 42 > urlPlaceholder > with width and height 1`] = `"https://via.placeholder.com/128x128/8ead33/1ddf0f.webp?text=benevolentia%20attonbitus%20auctus"`;
 
-exports[`image > 1211 > avatar 1`] = `"https://avatars.githubusercontent.com/u/92852016"`;
+exports[`image > 1211 > avatar 1`] = `"https://avatars.githubusercontent.com/u/89347165"`;
+
+exports[`image > 1211 > avatarAI > noArgs 1`] = `"https://cdn.jsdelivr.net/gh/matthewmayer/sd3-avatars@country-prompt/male/45.jpg"`;
+
+exports[`image > 1211 > avatarAI > with sex 1`] = `"https://cdn.jsdelivr.net/gh/matthewmayer/sd3-avatars@country-prompt/female/47.jpg"`;
 
 exports[`image > 1211 > avatarGitHub 1`] = `"https://avatars.githubusercontent.com/u/92852016"`;
 
@@ -152,7 +160,11 @@ exports[`image > 1211 > urlPlaceholder > with width 1`] = `"https://via.placehol
 
 exports[`image > 1211 > urlPlaceholder > with width and height 1`] = `"https://via.placeholder.com/128x128/ed4fef/a7fbae.webp?text=dapifer%20usque%20unde"`;
 
-exports[`image > 1337 > avatar 1`] = `"https://avatars.githubusercontent.com/u/26202467"`;
+exports[`image > 1337 > avatar 1`] = `"https://cdn.jsdelivr.net/gh/matthewmayer/sd3-avatars@country-prompt/female/14.jpg"`;
+
+exports[`image > 1337 > avatarAI > noArgs 1`] = `"https://cdn.jsdelivr.net/gh/matthewmayer/sd3-avatars@country-prompt/female/8.jpg"`;
+
+exports[`image > 1337 > avatarAI > with sex 1`] = `"https://cdn.jsdelivr.net/gh/matthewmayer/sd3-avatars@country-prompt/female/14.jpg"`;
 
 exports[`image > 1337 > avatarGitHub 1`] = `"https://avatars.githubusercontent.com/u/26202467"`;
 
