@@ -65,6 +65,16 @@ describe('number', () => {
         .it('with max as 3999', { max: 3999 })
         .it('with min and max', { min: 100, max: 502 });
     });
+
+    t.describe('exponentialDistribution', (t) => {
+      t.it('noArgs')
+        .it('with max', 10)
+        .it('with low base', { base: 0.1 })
+        .it('with high base', { base: 10 })
+        .it('with low bias', { bias: -9 })
+        .it('with high bias', { bias: 9 })
+        .it('with min and max', { min: 10, max: 100 });
+    });
   });
 
   describe(`random seeded tests for seed ${faker.seed()}`, () => {
@@ -696,6 +706,108 @@ describe('number', () => {
           faker.number.romanNumeral({ min: 500, max: 100 });
         }).toThrow(new FakerError('Max 100 should be greater than min 500.'));
       });
+    });
+
+    describe('exponentialDistribution', () => {
+      it('should generate a number between 0 and 1 by default', () => {
+        const actual = faker.number.exponentialDistribution();
+        expect(actual).toBeTypeOf('number');
+        expect(actual).toBeGreaterThanOrEqual(0);
+        expect(actual).toBeLessThan(1);
+      });
+
+      it('should generate a number between 0 and 10', () => {
+        const actual = faker.number.exponentialDistribution(10);
+        expect(actual).toBeTypeOf('number');
+        expect(actual).toBeGreaterThanOrEqual(0);
+        expect(actual).toBeLessThan(10);
+      });
+
+      it('should generate a number between 10 and 100', () => {
+        const actual = faker.number.exponentialDistribution({
+          min: 10,
+          max: 100,
+        });
+        expect(actual).toBeTypeOf('number');
+        expect(actual).toBeGreaterThanOrEqual(10);
+        expect(actual).toBeLessThan(100);
+      });
+
+      it('should generate a number with low base', () => {
+        const results = Array.from({ length: 10 }, (_, i) => i);
+        for (let i = 0; i < 1000; i++) {
+          results[
+            Math.floor(
+              faker.number.exponentialDistribution({ max: 10, base: 0.1 })
+            )
+          ]++;
+        }
+
+        expect(results[0]).toBeLessThan(75);
+        expect(results[9]).toBeGreaterThan(200);
+      });
+
+      it('should generate a number with high base', () => {
+        const results = Array.from({ length: 10 }, (_, i) => i);
+        for (let i = 0; i < 1000; i++) {
+          results[
+            Math.floor(
+              faker.number.exponentialDistribution({ max: 10, base: 10 })
+            )
+          ]++;
+        }
+
+        expect(results[0]).toBeGreaterThan(200);
+        expect(results[9]).toBeLessThan(75);
+      });
+
+      it('should generate a number with low bias', () => {
+        const results = Array.from({ length: 10 }, (_, i) => i);
+        for (let i = 0; i < 1000; i++) {
+          results[
+            Math.floor(
+              faker.number.exponentialDistribution({ max: 10, bias: -9 })
+            )
+          ]++;
+        }
+
+        expect(results[0]).toBeGreaterThan(200);
+        expect(results[9]).toBeLessThan(75);
+      });
+
+      it('should generate a number with high bias', () => {
+        const results = Array.from({ length: 10 }, (_, i) => i);
+        for (let i = 0; i < 1000; i++) {
+          results[
+            Math.floor(
+              faker.number.exponentialDistribution({ max: 10, bias: 9 })
+            )
+          ]++;
+        }
+
+        expect(results[0]).toBeLessThan(75);
+        expect(results[9]).toBeGreaterThan(200);
+      });
+    });
+
+    it('should throw when min > max', () => {
+      const min = 10;
+      const max = 9;
+
+      expect(() => {
+        faker.number.exponentialDistribution({ min, max });
+      }).toThrow(
+        new FakerError(`Max ${max} should be greater than min ${min}.`)
+      );
+    });
+
+    it('should throw when base is less than or equal to 0', () => {
+      expect(() => {
+        faker.number.exponentialDistribution({ base: 0 });
+      }).toThrow(new FakerError('Base should be greater than 0.'));
+      expect(() => {
+        faker.number.exponentialDistribution({ base: -1 });
+      }).toThrow(new FakerError('Base should be greater than 0.'));
     });
   });
 

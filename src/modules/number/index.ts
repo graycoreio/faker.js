@@ -534,4 +534,165 @@ export class NumberModule extends SimpleModuleBase {
 
     return result;
   }
+
+  /**
+   * Generates a random number between `min` and `max` using an exponential distribution.
+   * The lower bound is inclusive, but the upper bound is exclusive.
+   *
+   * The following table shows the rough distribution of values generated using `exponentialDistribution({ base: x })`:
+   *
+   * |  Result   | Base 0.1 | Base 0.5 | Base 1 | Base 2 | Base 10 |
+   * | :-------: | -------: | -------: | -----: | -----: | ------: |
+   * | 0.0 - 0.1 |     4.1% |     7.4% |  10.0% |  13.8% |   27.8% |
+   * | 0.1 - 0.2 |     4.5% |     7.8% |  10.0% |  12.5% |   16.9% |
+   * | 0.2 - 0.3 |     5.0% |     8.2% |  10.0% |  11.5% |   12.1% |
+   * | 0.3 - 0.4 |     5.7% |     8.7% |  10.0% |  10.7% |    9.4% |
+   * | 0.4 - 0.5 |     6.6% |     9.3% |  10.0% |  10.0% |    7.8% |
+   * | 0.5 - 0.6 |     7.8% |     9.9% |  10.0% |   9.3% |    6.6% |
+   * | 0.6 - 0.7 |     9.4% |    10.7% |  10.0% |   8.8% |    5.7% |
+   * | 0.7 - 0.8 |    12.1% |    11.5% |  10.0% |   8.2% |    5.0% |
+   * | 0.8 - 0.9 |    16.9% |    12.6% |  10.0% |   7.8% |    4.5% |
+   * | 0.9 - 1.0 |    27.9% |    13.8% |  10.0% |   7.5% |    4.1% |
+   *
+   * The following table shows the rough distribution of values generated using `exponentialDistribution({ bias: x })`:
+   *
+   * |  Result   | Bias -9 | Bias -1 | Bias 0 | Bias 1 | Bias 9 |
+   * | :-------: | ------: | ------: | -----: | -----: | -----: |
+   * | 0.0 - 0.1 |   27.9% |   13.7% |  10.0% |   7.4% |   4.1% |
+   * | 0.1 - 0.2 |   16.9% |   12.5% |  10.0% |   7.8% |   4.5% |
+   * | 0.2 - 0.3 |   12.1% |   11.6% |  10.0% |   8.3% |   5.1% |
+   * | 0.3 - 0.4 |    9.5% |   10.7% |  10.0% |   8.8% |   5.7% |
+   * | 0.4 - 0.5 |    7.8% |   10.0% |  10.0% |   9.3% |   6.6% |
+   * | 0.5 - 0.6 |    6.6% |    9.3% |  10.0% |   9.9% |   7.7% |
+   * | 0.6 - 0.7 |    5.7% |    8.8% |  10.0% |  10.7% |   9.5% |
+   * | 0.7 - 0.8 |    5.0% |    8.2% |  10.0% |  11.5% |  12.1% |
+   * | 0.8 - 0.9 |    4.5% |    7.8% |  10.0% |  12.6% |  16.8% |
+   * | 0.9 - 1.0 |    4.1% |    7.4% |  10.0% |  13.7% |  27.9% |
+   *
+   * @param options The options for generating the number.
+   * @param options.min The minimum value to generate (inclusive). Defaults to `0`.
+   * @param options.max The maximum value to generate (exclusive). Defaults to `1`.
+   * @param options.base The base of the exponential distribution. Should be greater than `0`. Defaults to `2`.
+   *
+   * The higher/more above `1` the `base`, the more likely the number will be closer to the minimum value.
+   * The lower/closer to zero the base, the more likely the number will be closer to the maximum value.
+   * Values of `1` will generate a uniform distribution.
+   * The following table shows the rough distribution of values generated using `exponentialDistribution({ base: x })`:
+   *
+   * |  Result   | Base 0.1 | Base 0.5 | Base 1 | Base 2 | Base 10 |
+   * | :-------: | -------: | -------: | -----: | -----: | ------: |
+   * | 0.0 - 0.1 |     4.1% |     7.4% |  10.0% |  13.8% |   27.8% |
+   * | 0.1 - 0.2 |     4.5% |     7.8% |  10.0% |  12.5% |   16.9% |
+   * | 0.2 - 0.3 |     5.0% |     8.2% |  10.0% |  11.5% |   12.1% |
+   * | 0.3 - 0.4 |     5.7% |     8.7% |  10.0% |  10.7% |    9.4% |
+   * | 0.4 - 0.5 |     6.6% |     9.3% |  10.0% |  10.0% |    7.8% |
+   * | 0.5 - 0.6 |     7.8% |     9.9% |  10.0% |   9.3% |    6.6% |
+   * | 0.6 - 0.7 |     9.4% |    10.7% |  10.0% |   8.8% |    5.7% |
+   * | 0.7 - 0.8 |    12.1% |    11.5% |  10.0% |   8.2% |    5.0% |
+   * | 0.8 - 0.9 |    16.9% |    12.6% |  10.0% |   7.8% |    4.5% |
+   * | 0.9 - 1.0 |    27.9% |    13.8% |  10.0% |   7.5% |    4.1% |
+   *
+   * Can alternatively be configured using the `bias` option. `base` takes precedence over `bias`.
+   * @param options.bias An alternative way to specify the `base`. Also accepts values below zero.
+   *
+   * The higher/more positive the `bias`, the more likely the number will be closer to the maximum value.
+   * The lower/more negative the `bias`, the more likely the number will be closer to the minimum value.
+   * Values of 0 will generate a uniform distribution.
+   *
+   * The following table shows the rough distribution of values generated using `exponentialDistribution({ bias: x })`:
+   *
+   * |  Result   | Bias -9 | Bias -1 | Bias 0 | Bias 1 | Bias 9 |
+   * | :-------: | ------: | ------: | -----: | -----: | -----: |
+   * | 0.0 - 0.1 |   27.9% |   13.7% |  10.0% |   7.4% |   4.1% |
+   * | 0.1 - 0.2 |   16.9% |   12.5% |  10.0% |   7.8% |   4.5% |
+   * | 0.2 - 0.3 |   12.1% |   11.6% |  10.0% |   8.3% |   5.1% |
+   * | 0.3 - 0.4 |    9.5% |   10.7% |  10.0% |   8.8% |   5.7% |
+   * | 0.4 - 0.5 |    7.8% |   10.0% |  10.0% |   9.3% |   6.6% |
+   * | 0.5 - 0.6 |    6.6% |    9.3% |  10.0% |   9.9% |   7.7% |
+   * | 0.6 - 0.7 |    5.7% |    8.8% |  10.0% |  10.7% |   9.5% |
+   * | 0.7 - 0.8 |    5.0% |    8.2% |  10.0% |  11.5% |  12.1% |
+   * | 0.8 - 0.9 |    4.5% |    7.8% |  10.0% |  12.6% |  16.8% |
+   * | 0.9 - 1.0 |    4.1% |    7.4% |  10.0% |  13.7% |  27.9% |
+   *
+   * This option is ignored if `base` is specified.
+   *
+   * Defaults to `-1`.
+   *
+   * @throws If `base` is less than or equal to `0`.
+   * @throws If `max` is less than `min`.
+   *
+   * @example
+   * faker.number.exponentialDistribution() // 0.41928964795957224
+   * faker.number.exponentialDistribution(10) // 1.656598169056771
+   * faker.number.exponentialDistribution({ min: 10, max: 100 }) // 88.7273250669911
+   * faker.number.exponentialDistribution({ min: 0, max: 100, base: 10 }) // 6.9442760672808745
+   * faker.number.exponentialDistribution({ min: 0, max: 100, bias: 10 }) // 67.03715679154617
+   *
+   * @since 9.5.0
+   */
+  exponentialDistribution(
+    options:
+      | number
+      | {
+          /**
+           * The minimum value to generate (inclusive).
+           *
+           * @default 0
+           */
+          min?: number;
+          /**
+           * The maximum value to generate (exclusive).
+           *
+           * @default 1
+           */
+          max?: number;
+          /**
+           * The base of the exponential distribution. Should be greater than 0. Defaults to `2`.
+           * The higher/more above `1` the `base`, the more likely the number will be closer to the minimum value.
+           * The lower/closer to zero the `base`, the more likely the number will be closer to the maximum value.
+           * Values of `1` will generate a uniform distribution.
+           * Can alternatively be configured using the `bias` option. `base` takes precedence over `bias`.
+           *
+           * @default 2
+           */
+          base?: number;
+          /**
+           * An alternative way to specify the `base`. Also accepts values below zero.
+           * The higher/more positive the `bias`, the more likely the number will be closer to the maximum value.
+           * The lower/more negative the `bias`, the more likely the number will be closer to the minimum value.
+           * Values of `0` will generate a uniform distribution.
+           * This option is ignored if `base` is specified.
+           *
+           * @default -1
+           */
+          bias?: number;
+        } = {}
+  ): number {
+    if (typeof options === 'number') {
+      options = { min: 0, max: options };
+    }
+
+    const {
+      min = 0,
+      max = 1,
+      bias = -1,
+      base = bias <= 0 ? -bias + 1 : 1 / (bias + 1),
+    } = options;
+
+    if (base === 1) {
+      return this.faker.number.float({ min, max });
+    } else if (base <= 0) {
+      throw new FakerError('Base should be greater than 0.');
+    }
+
+    if (max === min) {
+      return min;
+    } else if (max < min) {
+      throw new FakerError(`Max ${max} should be greater than min ${min}.`);
+    }
+
+    const exponent = this.faker.number.float();
+    const factor = (base ** exponent - 1) / (base - 1);
+    return min + (max - min) * factor;
+  }
 }

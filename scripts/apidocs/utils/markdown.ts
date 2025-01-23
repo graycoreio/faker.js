@@ -26,6 +26,12 @@ const htmlSanitizeOptions: sanitizeHtml.IOptions = {
     'span',
     'strong',
     'ul',
+    'table',
+    'thead',
+    'tbody',
+    'tr',
+    'th',
+    'td',
   ],
   allowedAttributes: {
     a: ['href', 'target', 'rel'],
@@ -33,6 +39,9 @@ const htmlSanitizeOptions: sanitizeHtml.IOptions = {
     div: ['class'],
     pre: ['class', 'v-pre', 'tabindex'],
     span: ['class', 'style'],
+    table: ['tabindex'],
+    th: ['style'],
+    td: ['style'],
   },
   selfClosing: [],
 };

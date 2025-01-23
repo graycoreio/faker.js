@@ -20,6 +20,20 @@ exports[`number > 42 > binary > with options 1`] = `"100"`;
 
 exports[`number > 42 > binary > with value 1`] = `"0"`;
 
+exports[`number > 42 > exponentialDistribution > noArgs 1`] = `0.29642623304954707`;
+
+exports[`number > 42 > exponentialDistribution > with high base 1`] = `0.15209599448489752`;
+
+exports[`number > 42 > exponentialDistribution > with high bias 1`] = `0.6420630212280508`;
+
+exports[`number > 42 > exponentialDistribution > with low base 1`] = `0.6420630212280508`;
+
+exports[`number > 42 > exponentialDistribution > with low bias 1`] = `0.15209599448489752`;
+
+exports[`number > 42 > exponentialDistribution > with max 1`] = `2.9642623304954707`;
+
+exports[`number > 42 > exponentialDistribution > with min and max 1`] = `36.67836097445924`;
+
 exports[`number > 42 > float > with max 1`] = `25.84326820046801`;
 
 exports[`number > 42 > float > with min 1`] = `-25.89477488956341`;
@@ -84,6 +98,20 @@ exports[`number > 1211 > binary > with options 1`] = `"1010"`;
 
 exports[`number > 1211 > binary > with value 1`] = `"1"`;
 
+exports[`number > 1211 > exponentialDistribution > noArgs 1`] = `0.9033226590337899`;
+
+exports[`number > 1211 > exponentialDistribution > with high base 1`] = `0.8313808279511881`;
+
+exports[`number > 1211 > exponentialDistribution > with high bias 1`] = `0.9801213540567579`;
+
+exports[`number > 1211 > exponentialDistribution > with low base 1`] = `0.9801213540567579`;
+
+exports[`number > 1211 > exponentialDistribution > with low bias 1`] = `0.8313808279511881`;
+
+exports[`number > 1211 > exponentialDistribution > with max 1`] = `9.0332265903379`;
+
+exports[`number > 1211 > exponentialDistribution > with min and max 1`] = `91.29903931304109`;
+
 exports[`number > 1211 > float > with max 1`] = `64.06789061927832`;
 
 exports[`number > 1211 > float > with min 1`] = `-2.0736333821888806`;
@@ -147,6 +175,20 @@ exports[`number > 1337 > binary > noArgs 1`] = `"0"`;
 exports[`number > 1337 > binary > with options 1`] = `"10"`;
 
 exports[`number > 1337 > binary > with value 1`] = `"0"`;
+
+exports[`number > 1337 > exponentialDistribution > noArgs 1`] = `0.1991604233570674`;
+
+exports[`number > 1337 > exponentialDistribution > with high base 1`] = `0.092022676113987`;
+
+exports[`number > 1337 > exponentialDistribution > with high bias 1`] = `0.5033501285097729`;
+
+exports[`number > 1337 > exponentialDistribution > with low base 1`] = `0.5033501285097729`;
+
+exports[`number > 1337 > exponentialDistribution > with low bias 1`] = `0.092022676113987`;
+
+exports[`number > 1337 > exponentialDistribution > with max 1`] = `1.991604233570674`;
+
+exports[`number > 1337 > exponentialDistribution > with min and max 1`] = `27.924438102136065`;
 
 exports[`number > 1337 > float > with max 1`] = `18.079702576075135`;
 
