@@ -141,6 +141,14 @@ const secondRandom = faker.number.int();
 console.log(firstRandom === secondRandom);
 ```
 
+## Usage Trend
+
+[Usage Trend of @faker-js/faker](https://npm-compare.com/@faker-js/faker#timeRange=THREE_YEARS)
+
+<a href="https://npm-compare.com/@faker-js/faker#timeRange=THREE_YEARS" target="_blank">
+  <img src="https://npm-compare.com/img/npm-trend/THREE_YEARS/@faker-js/faker.png" width="800px" alt="NPM Usage Trend of @faker-js/faker" />
+</a>
+
 ## 🤝 Sponsors
 
 Faker is an MIT-licensed open source project with its ongoing development made possible entirely by the support of these awesome backers
